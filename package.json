@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
   "dev": "vinxi dev",
-  "build": "./node_modules/.bin/vinxi build",
+  "build": "bunx vinxi build",
   "preview": "vinxi preview"
 },
   "dependencies": {
