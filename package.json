@@ -4,10 +4,10 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "vinxi dev",
-    "build": "vinxi build",
-    "preview": "vinxi preview"
-  },
+  "dev": "vinxi dev",
+  "build": "./node_modules/.bin/vinxi build",
+  "preview": "vinxi preview"
+},
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
