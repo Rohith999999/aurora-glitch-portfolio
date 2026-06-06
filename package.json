@@ -4,9 +4,9 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "preview": "vinxi preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
