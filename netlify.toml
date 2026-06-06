@@ -1,1 +1,3 @@
-command = "bun run build -- --root src"
+[build]
+  command = "bun install && bun run build"
+  publish = ".output/public"
