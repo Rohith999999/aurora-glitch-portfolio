@@ -3,6 +3,17 @@ import { useEffect, useRef, useState } from "react";
 export function ParticleField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [spin, setSpin] = useState(0);
+  const spinningRef = useRef(false);
+
+  const handleTap = () => {
+    if (spinningRef.current) return;
+    spinningRef.current = true;
+    setSpin((s) => s + 360);
+    window.setTimeout(() => {
+      spinningRef.current = false;
+    }, 1500);
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -105,7 +116,27 @@ export function ParticleField() {
 
   return (
     <>
-      <canvas ref={canvasRef} className="fixed inset-0 z-0 pointer-events-none" />
+      <div
+        onClick={handleTap}
+        onTouchStart={handleTap}
+        className="fixed inset-0 z-0"
+        style={{
+          perspective: "1200px",
+          cursor: "pointer",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            transform: `rotate(${spin}deg)`,
+            transition: "transform 1.4s cubic-bezier(0.22, 1, 0.36, 1)",
+            transformOrigin: "center center",
+          }}
+        >
+          <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+        </div>
+      </div>
       <div
         className="fixed pointer-events-none z-[60] mix-blend-screen"
         style={{
